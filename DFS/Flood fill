@@ -1,0 +1,30 @@
+public:
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
+       int newi = image[sr][sc];
+        if(newi != color)  solve(image,  sr,  sc, newi, color);
+            return image;
+      
+      
+        
+        
+        
+    }
+    public:
+    void solve(vector<vector<int>>& image, int r, int c,int newi, int color){
+        
+          if(image[r][c]==newi ){
+              image[r][c]= color;
+              if(r>=1)
+                  solve(image,r-1,c,newi,color);
+                 if(c>=1)
+                  solve(image,r,c-1,newi,color);
+                 if(r+1 < image.size())
+                  solve(image,r+1,c,newi,color);
+                 if(c+1 < image[0].size())
+                  solve(image,r,c+1,newi,color);
+          
+                  
+                  
+                  
+              }
+    }

@@ -1,0 +1,16 @@
+int findsum(Node* root,int &k){
+    if(root==NULL)
+    return 0;
+    int ans=0;
+    ans+= findsum(root->left,k);
+    if(k>0){
+        k--;
+        ans+=root->data;
+    }
+    ans+=findsum(root->right,k);
+    return ans;
+}
+int sum(Node* root, int k) 
+{ 
+    return findsum(root,k);
+} 
